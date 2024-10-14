@@ -25,15 +25,14 @@
     header{
         margin: 0;
         padding: 0;
-        font-size: 3.5em;
-           height: 20% ;
+        font-size: 2em;
+           height: 10% ;
     }
     nav button{
-       
         margin: 0;
         padding: 0;
-        font-size: 2.5em;
-        height: 14% ;
+        font-size: 1.5em;
+        height: 5% ;
         /* cursor: pointer; */
     }
 
@@ -41,15 +40,26 @@
     main{
         margin: 0;
         padding: 0;
-        font-size: 3.5em;
-        height: 50% ;
+        font-size: 2em;
+        height: 25% ;
         color: red;
     }
     footer{
         margin: 0;
         padding: 0;
         height: 16% ;
-        font-size:4em;
+        font-size:2em;
+    }
+    form{
+        font-size: 1.5em ;
+    }
+    form input{
+        font-size: 1.5em ;
+        width: 8em;
+    }
+    form button{
+        font-size: 1.5rem ;
+        margin-right: 1em;
     }
 </style>
 <script>
@@ -70,6 +80,14 @@
     }
  }
    Model.pos = 0 ; 
+   Model.users = [] ;
+        {           
+            let str = localStorage.getItem('users') ;
+            if(str){
+             let users = JSON.parse(str) ;
+              Model.users = users ;
+            } 
+        }
    let UI = {} ; 
    UI.printWord = function(){
             let CET6 = Model.CET6 ;
@@ -86,7 +104,6 @@
     <header>
       单词
     </header>
- 
     <main>
         <p id="en">abandon</p>
         <p id="pn">/ə'bændən/</p>
@@ -100,6 +117,16 @@
         <button id="nextWord">单词继续</button>
         <button id="lastWord">最后单词</button>
     </nav>
+    <form>
+        <p>用户：<input type="text" name="user"/></p>
+        <p>密码：<input type="password" name="pass" /></p>
+        <button id = "signIn">
+           注册
+        </button>
+        <button id = "loginIn">
+           登录
+        </button>
+       </form>
     <footer>
         江西科技师范大学洪乃树
     </footer>
@@ -118,6 +145,61 @@ document.getElementById('changeBg').onclick = function() {
     currentBgIndex = (currentBgIndex + 1) % backgrounds.length; // 循环切换
     document.body.style.backgroundImage = backgrounds[currentBgIndex];
 };
+
+
+UI.form = select('form');
+        select('button#signIn').onclick = function(ev){
+            ev.preventDefault() ;
+            let users = Model.users ;
+            let userName = UI.form.user.value ;
+            let passWord = UI.form.pass.value ;
+            let user = {
+               userName: userName ,
+               passWord: passWord
+           } 
+           let exist = false ;
+           for(let u of users){
+             if(u.userName == userName){
+                exist = true ;
+                break ;
+             }
+           }
+           if(exist){
+             UI.log(userName + '已经存在， 注册不成功！') ;
+           }else{
+            UI.log(userName + '注册成功！') ;
+            users.push(user) ;
+           }
+          let s = JSON.stringify(users) ;
+          localStorage.setItem('users', s) ;
+          
+        } ; 
+
+        select('button#loginIn').onclick = function(ev){
+            ev.preventDefault() ;
+            let users = Model.users ;
+            let userName = UI.form.user.value ;
+            let passWord = UI.form.pass.value ;
+            
+           let success = false ;
+           for(let u of users){
+             if(u.userName === userName && u.passWord === passWord){
+                success = true ;
+                break ;
+             }
+           }
+           if(success){
+             UI.log(userName + '成功登录！') ;
+             UI.form.style.display = 'none' ;
+           }else{
+            UI.log(userName + '登录不成功') ;
+            
+           }
+                
+        } ; 
+
+
+
         select('button#firstWord').onclick = function(){
            Model.pos = 0 ;
            UI.printWord() ;
