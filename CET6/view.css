@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, sans-serif; /* 添加字体样式 */
+}
+ 
+body {
+    font-size: 1rem; /* 使用rem单位，相对于根元素的字体大小 */
+    height: 100vh; /* 视口高度 */
+    position: relative;
+    background-color: #f4f4f4; /* 添加背景色 */
+    color: #333; /* 设置文字颜色 */
+    line-height: 1.6; /* 添加行高，提高可读性 */
+}
+ 
+/* 头部样式 */
+header {
+    font-size: 2.2rem; /* 使用rem单位 */
+    height: 10vh; /* 使用vh单位，相对于视口高度 */
+    background-color: #4CAF50; /* 添加背景色 */
+    color: white; /* 设置文字颜色 */
+    padding: 1vh 0; /* 使用vh单位设置内边距 */
+}
+ 
+/* 导航栏样式 */
+nav {
+    height: 8vh; /* 使用vh单位 */
+    background-color: #333; /* 添加背景色 */
+    color: white; /* 设置文字颜色 */
+    display: flex; /* 使用flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+ 
+nav button {
+    font-size: 1.4rem; /* 使用rem单位 */
+    padding: 0.5rem 1rem; /* 使用rem单位设置内边距 */
+    margin: 0 0.5rem; /* 使用rem单位设置外边距 */
+    background-color: transparent; /* 透明背景 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去除边框 */
+    cursor: pointer; /* 添加鼠标指针样式 */
+}
+ 
+/* 按钮样式（全局） */
+button {
+    display: inline-block;
+    border: none;
+    background-color: #4CAF50; /* 绿色背景 */
+    color: white; /* 白色文字 */
+    padding: 0.7rem 1.5rem; /* 使用rem单位设置内边距 */
+    cursor: pointer; /* 添加鼠标指针样式 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+ 
+/* 主内容样式 */
+main {
+    margin-top: 2rem; /* 使用rem单位设置上边距 */
+    font-size: 1.6rem; /* 使用rem单位 */
+    height: 60vh; /* 使用vh单位设置高度 */
+    position: relative;
+    padding: 1rem; /* 添加内边距，使用rem单位 */
+}
+ 
+main p#en, main p#pn {
+    /* 直接在选择器中指定ID，避免重复定义 */
+    margin: 0.5rem 0; /* 使用rem单位设置外边距 */
+}
+ 
+main p#en {
+    color: lightblue;
+    text-shadow: 2px 2px gray;
+}
+ 
+main p#pn {
+    color: rgb(32, 44, 178);
+}
+ 
+form{
+    position: absolute ;
+    width: 90% ;
+    height: 50% ;
+    border: 2px solid rgb(128, 128, 128);
+    left: 5% ;
+    top: 10% ;
+    background-color: antiquewhite;
+    font-size: 1.1em ;
+}
+ 
+form input{
+    font-size: 1.1em ;
+    width: 6em;
+}
+form button{
+    font-size: 1.3rem ;
+    margin-right: 1em;
+}
+ 
+footer {
+    height: 20vh; /* 使用vh单位设置高度 */
+    font-size: 1.2rem; /* 使用rem单位 */
+    padding: 1rem; /* 添加内边距，使用rem单位 */
+}
+ 
+span#level, header span#response {
+    position: absolute;
+    font-size: 0.8rem; /* 使用rem单位 */
+    color: rgb(0, 255, 102); /* 或其他颜色 */
+}
+ 
+span#level {
+    right: 2vw; /* 使用vw单位设置右外边距 */
+    top: 1vh; /* 使用vh单位设置顶外边距 */
+}
+ 
+header span#response {
+    right: 1rem; /* 使用rem单位设置右外边距 */
+    top: 2rem; /* 使用rem单位设置顶外边距 */
+}
+ 
+p.cn {
+    border: 1px solid rgb(4, 0, 255);
+    background-color: antiquewhite;
+    cursor: pointer;
+    font-size: 0.8rem; /* 使用rem单位 */
+    margin-bottom: 0.2rem; /* 使用rem单位设置下边距 */
+    padding: 0.5rem; /* 添加内边距，使用rem单位 */
+}
+ 
+p.cn.right, p.cn.wrong {
+    /* 直接在复合选择器中指定类名 */
+}
+ 
+p.cn.right {
+    background-color: rgb(111, 0, 255);
+    color: red;
+}
+ 
+p.cn.wrong {
+    background-color: rgb(128, 128, 128);
+    color: white;
+}
+ 
+p.cn:hover {
+    color: blue;
+}
+ 
+p#log {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 0.65rem; /* 使用rem单位 */
+    padding: 0.5rem 1rem; /* 使用rem单位设置内边距 */
+    text-align: center;
+}
